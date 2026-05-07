@@ -35,77 +35,54 @@ def peces():
     print("Total de peces enlatados: ",lata)
     print("Total de peces planchados: ",plancha)
 
+
+
+
+
+
+def print_all(peso, sodio, export):
+    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
+
+def tiene_sello(export):
+    if export=="internacional":
+        return True
+    else:
+        return False
+    
+def determina_tipo_lata(peso, sodio):
+    if peso<=500:
+        if sodio<5:
+            return "Lata normal"
+        elif sodio>=5 and sodio<=8:
+            return "Lata especial"
+        else:
+            return "Lata acorazada"
+    elif peso>500 and peso<=1500:
+        if sodio<5:
+            return "Lata mediana"
+        elif sodio>=5 and sodio<=8:
+            return "Lata mediana especial"
+        else:
+            return "Lata mediana acorazada"
+    else:
+        if sodio<5:
+            return "Lata grande"
+        elif sodio>=5 and sodio<=8:
+            return "Lata grande especial"
+        else:
+            return "Lata grande acorazada"
+
 def ejercicio2():
     exportacion= ["nacional", "internacional"]
     latas=random.randint(1,10)
-    for i in range(latas):
-        peso=random.randint(100, 2000)
-        sodio=random.randint(1, 12)
-        export=random.choice(exportacion)
+    for _ in range(latas):
+        peso = random.randint(100, 2000)
+        sodio = random.randint(1, 12)
+        export = random.choice(exportacion)
         time.sleep(1)
-        if peso<=500:
-            if sodio<5:
-                if export=="nacional":
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata normal sin sello")
-            elif sodio>=5 and sodio<=8:
-                if export=="nacional":
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata especial sin sello")
-                else:
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata especial con sello")
-            else:
-                if export=="nacional":
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata acorazada sin sello")
-                else:
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata acorazada con sello")
-        elif peso>500 and peso<=1500:
-            if sodio<5:
-                if export=="nacional":
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata mediana sin sello")
-                else:
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata mediana con sello")
-            elif sodio>=5 and sodio<=8:
-                if export=="nacional":
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata mediana especial sin sello")
-                else:
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata mediana especial con sello")
-            else:
-                if export=="nacional":
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata mediana acorazada sin sello")
-                else:
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata mediana acorazada con sello")
-        else:
-            if sodio<5:
-                if export=="nacional":
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata grande sin sello")
-                else:
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata grande con sello")
-            elif sodio>=5 and sodio<=8:
-                if export=="nacional":
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata grande especial sin sello")
-                else:
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata grande especial con sello")
-            else:
-                if export=="nacional":
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata grande acorazada sin sello")
-                else:
-                    print(f"Peso: {peso} gramos, sodio: {sodio} mg, exportación: {export}")
-                    print("Lata grande acorazada con sello")
+        tipo = determina_tipo_lata(peso, sodio)
+        sello = "con sello" if tiene_sello(export) else "sin sello"
+        print_all(peso, sodio, export)
+        print(f"{tipo} {sello}")
 
 ejercicio2()
-#HOLA
