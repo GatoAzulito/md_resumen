@@ -253,7 +253,7 @@ def saludar(nombre="invitado"):
 
 ---
 
-## 11) return
+## 11) Return
 
 `return` se usa dentro de una función para **devolver un valor**.
 
@@ -489,7 +489,7 @@ import math
 print(math.sqrt(16)) #Calcula raiz cuadrada
 ```
 
-### Librerías externas
+### 20) Librerías externas
 Se instalan con `pip`.
 
 ```bash
@@ -502,4 +502,52 @@ respuesta = requests.get("https://api.github.com")
 print(respuesta.status_code)
 ```
 
+### 21) Random
+Se instala con `random`
+```python
+random.random() #Floats entre 0 y 1
+random.randint(1, 10) #número del 1 al 10
+randon.randint(0, 10, 2) #números: 0, 2, 4, 6, 8
+random.uniform(1.5, 2.5) #Float 1.666744456....
+round(random.uniform(1.5, 2.5), 2) #Float 1.66
+items = ['rojo','verde','azul']
+print(random.choice(items)) #rojo, verde o azul
+```
+
+### 22) Sleep
+Se instala con `time`
+```python
+time.sleep(2) #Pausa 2 segundos
+time.sleep(0.5) #Pausa medio segundo
+for i in range(5, 0, -1):
+    print(i)
+    time.sleep(1)
+print("¡Listo!") #Cuenta regresiva de 5 a 0, bajando de 1 en 1
+```
+### 23) Matrices Unidimensionales
+```python
+a = [1, 2, 3]
+b = []           # vacía
+c = [0] * 5      # [0,0,0,0,0]
+
+a[0]      # primer elemento
+a[-1]     # último elemento
+a[1:3]    # sublista desde índice 1 hasta 2
+a[:2]     # primeros dos
+
+a.append(4)       # añade al final
+a.insert(1, 1.5)  # inserta en posición 1
+a.pop()           # quita y devuelve último
+a.remove(2)       # quita la primera ocurrencia de 2
+
+len(a) #Longitud de a
+sum(a) #La suma de los elementos de a
+min(a); max(a) #El número min. y máx. de a
+sorted(a)    # devuelve nueva lista ordenada
+```
+### 23) Matrices Bidimensionales
+```python
+m_2d=[[1,2], [3,4]]
+m_2d= [[1,2],[3,4],[5,6]]
+```
 ---
