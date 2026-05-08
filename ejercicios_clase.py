@@ -118,20 +118,94 @@ def loteria():
     num3=random.randint(1,9)
     lista_ganadora=[num1,num2,num3]
     lista_generados=[]
+    turno = 0
     print(f"Los números son {num1}, {num2}, {num3}")
     generar=input("Presione Enter para generar números")
     while sorted(lista_ganadora) != sorted(lista_generados):
         while len(lista_generados)<=2:
+            turno += 1 
             num=random.randint(1,9)
             lista_generados.append(num)
             time.sleep(1)
             print(lista_generados)
+        turno += 1
+  
         num=random.randint(1,9)
         lista_generados.append(num)
         lista_generados.pop(0)
         time.sleep(1)
         print(lista_generados)
-    print("Ganaste!!!")
-loteria()
-        
+    print(f"Ganaste!!! (En el turno {turno})")
 
+def profe():
+    n1=random.randint(1,9)
+    n3=random.randint(1,9)
+    n2=random.randint(1,9)
+    t1=False
+    t2=False
+    t3=False
+    nums=0
+    print(f"Los numeros generados son: {n1}, {n2} y {n3}")
+    while not t1 or not t2 or not t3:
+        numerito=random.randint(1,9)
+        print("EL numero es", numerito)
+        time.sleep(1)
+        if numerito==n1:
+            t1=True
+        if numerito==n2:
+            t2=True
+        if numerito==n3:
+            t3=True
+        nums+=1
+    print(f"GANASTE, en {nums} turnos")
+
+# Fabrica de enlatados
+# Se necesita hacer el algoritomo de productos enlatados
+# Se debe consultar el peso del producto( en gramos) (solo valores positivos)
+# El porcentaje de sodio en él (solo valores entre 1 y 100)
+# y si se va a vender nacional o internacionalmente
+# Considerar los criterios en la siguiente tabla
+def enlatados():
+    respuestas=["si", "sí", "no"]
+    try:
+        peso=int(input("Ingrese el peso del producto: "))
+        sodio=int(input("Ingrese la cantidad de sodio: "))
+    except ValueError:
+        print("Error: tipo de dato inválido")
+        return
+    exportacion=input("¿Su producto es internacional? ").lower()
+    if exportacion in respuestas:
+        pass
+    else:
+        raise ValueError("Respuesta inválida")
+        return
+    if peso<500:
+        lata="normal"
+    elif peso>=500 and peso<=1500:
+        lata="mediana"
+    elif peso>1500:
+        lata="grande"
+    else:
+        print("Peso inválido")
+    if sodio<5:
+        tipo=""
+    elif sodio>=5 and sodio<=8:
+        tipo="especial"
+    elif sodio>8:
+        tipo="acorazada"
+    else:
+        print("Cantidad de sodio inválida")
+    if exportacion=="si" or exportacion=="sí":
+        sello="con sticker de validación sanitaria"
+    else:
+        sello=""
+    print(f"lata {lata} {tipo} {sello}")
+
+def absoluto():
+    num=random.randint(1,9)
+    while abs(-3)!=num:
+        print(num)
+        time.sleep(1)
+        num=random.randint(1,9)
+    print("El numero es", num)
+absoluto()
