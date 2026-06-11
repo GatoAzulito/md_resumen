@@ -169,7 +169,7 @@ Métodos útiles:
 
 ## 8) Diccionarios
 
-Guardan pares `clave: valor`.
+Guardan pares `keys: values`.
 
 ```python
 persona = {
@@ -180,6 +180,28 @@ persona = {
 
 print(persona["nombre"])
 persona["edad"] = 26
+
+#Diccionario frutas
+Frutas_precio={
+    1:{"nombre": "Maracuya", "precio": 3000},
+    2:{"nombre": "Pera", "precio": 1500},
+    3:{"nombre": "Tomate", "precio": 1200}
+} 
+Frutas_precio[4]={"nombre": "Piña", "precio": 3500} #Añadir un valor extra
+print(Frutas_precio[ID OPCIONAL]["nombre"]) #Muestra los nombre de frutas precio
+Frutas_precio[ID OPCIONAL]["precio"] = 2000 #Cambia el precio de frutas precio
+print(list(Frutas_precio.keys())[-1]) #Muestra lo ultimo
+
+print(Frutas_precio.keys()) #Mostrar keys (1, 2, 3, 4)
+print(Frutas_precio.values()) #Mostrar values ({'nombre': 'Maracuya', 'precio': 3000}, {'nombre': 'Pera', 'precio': 1500}, {'nombre': 'Cebolla', ')
+print(Frutas_precio.items()) #Mostrar items (dict_items([(1, {'nombre': 'Maracuya', 'precio': 3000}), (2, {'nombre': 'Pera', 'precio': 1500}), (3, {'nombre': 'Cebolla', 'precio': 1200}), (4, {'nombre': 'Piña', 'precio': 3500})]))
+
+
+
+#Sumar todos los valores de Frutas_precio
+for p in Frutas_precio.values():
+    total=total+p["precio"]
+print("Total:", total)
 ```
 
 Métodos útiles:
